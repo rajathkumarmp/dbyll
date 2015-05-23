@@ -1,6 +1,6 @@
 ---
 layout: page
-title: dbyll
+tagline:
 ---
 
 {% for post in paginator.posts %}
@@ -48,7 +48,7 @@ title: dbyll
     {% if paginator.previous_page == 1 %}
     <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
     {% else %}
-    <a href="{{ site.BASE_PATH }}/page{{ paginator.previous_page }}">&larr; Newer</a>
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
     {% endif %}
   </li>
   {% else %}
@@ -63,7 +63,7 @@ title: dbyll
 
   {% if paginator.next_page %}
   <li class="next">
-    <a href="{{ site.BASE_PATH }}/page{{ paginator.next_page }}">Older &rarr;</a>
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
   </li>
   {% else %}
   <li class="next disabled">
